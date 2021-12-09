@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 
 import "./Input.scss";
 import FormFieldError from "../Atoms/FormFieldError";
@@ -17,7 +17,7 @@ interface Props {
   validationOptions?: IValidationOptions;
 }
 
-const Input: React.FC<Props> = (props): JSX.Element => {
+const Input = forwardRef<HTMLInputElement, Props>((props, ref): JSX.Element => {
   const [isValid, setIsValid] = useState(true);
   const [errors, setErrors] = useState<string[]>([]);
   const [wasTouched, setWasTouched] = useState(false);
@@ -47,6 +47,7 @@ const Input: React.FC<Props> = (props): JSX.Element => {
       <FormFieldLabel htmlFor={props.id}>{props.labelText}</FormFieldLabel>
 
       <input
+        ref={ref}
         className={`input__input-field ${
           isValid ? (wasTouched ? "valid" : "") : "invalid"
         }`}
@@ -59,9 +60,11 @@ const Input: React.FC<Props> = (props): JSX.Element => {
       />
 
       {errors.length > 0 &&
-        errors.map((error) => <FormFieldError>{error}</FormFieldError>)}
+        errors.map((error, index) => (
+          <FormFieldError key={index}>{error}</FormFieldError>
+        ))}
     </div>
   );
-};
+});
 
 export default Input;

@@ -1,15 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import "./TaxDeductionCalculator.scss";
+import { calculateDeduction } from "../../Services/TaxDeductionService";
 import Button from "../Atoms/Button";
 import HintText from "../Atoms/HintText";
 import TextButton from "../Atoms/TextButton";
 import Title from "../Atoms/Title";
 import Input from "../Molecules/Input";
 import OptionSelector from "../Molecules/OptionSelector";
-
-import "./TaxDeductionCalculator.scss";
+import DeductionOptionsColumn from "./DeductionOptionsColumn";
+import { RootState } from "../../Redux/Store";
+import {
+  addDeductionOptions,
+  clearOptions,
+} from "../../Redux/DeductionOptions/Actions";
 
 const TaxDeductionCalculator: React.FC = (): JSX.Element => {
+  // monthly salary input
   const [monthlySalary, setMonthlySalary] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
+  // redux
+  const dispatch = useDispatch();
+  const deductionOptions = useSelector(
+    (state: RootState) => state.deductionOptions
+  );
+
+  /**
+   * Clear redux's store
+   * when unmounting.
+   */
+  useEffect(() => {
+    return () => {
+      dispatch(clearOptions());
+    };
+  }, []);
 
   const calculationOptions = [
     {
@@ -26,9 +51,18 @@ const TaxDeductionCalculator: React.FC = (): JSX.Element => {
     calculationOptions[0].id
   );
 
-  const calculateTaxDeduction = () => {};
+  /**
+   * Calculates deduction from
+   * user's input.
+   */
+  const calculateTaxDeduction = () => {
+    const inputValid = inputRef.current?.classList.contains("valid");
 
-  const add = () => {};
+    if (inputValid) {
+      const calculatedDeduction = calculateDeduction(+monthlySalary);
+      dispatch(addDeductionOptions(calculatedDeduction));
+    }
+  };
 
   return (
     <section className="tax-deduction-calculator">
@@ -42,6 +76,7 @@ const TaxDeductionCalculator: React.FC = (): JSX.Element => {
 
       <Input
         id="monthly-salary"
+        ref={inputRef}
         value={monthlySalary}
         setValue={setMonthlySalary}
         placeholder="Введите данные"
@@ -51,6 +86,11 @@ const TaxDeductionCalculator: React.FC = (): JSX.Element => {
 
       <TextButton onClick={calculateTaxDeduction}>Рассчитать</TextButton>
 
+      <DeductionOptionsColumn
+        id="calculations-result"
+        options={deductionOptions}
+      />
+
       <OptionSelector
         className="tax-deduction-calculator__options"
         title="Что уменьшаем?"
@@ -59,7 +99,7 @@ const TaxDeductionCalculator: React.FC = (): JSX.Element => {
         options={calculationOptions}
       />
 
-      <Button style="big" onClick={add}>
+      <Button style="big" onClick={() => {}}>
         Добавить
       </Button>
     </section>
