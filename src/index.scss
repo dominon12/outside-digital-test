@@ -1,0 +1,47 @@
+// normalize.css
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+@font-face {
+  font-family: "Lab Grotesque Regular";
+  src: url("./Assets/Fonts/LabGrotesque/LabGrotesque-Regular.eot");
+  src: url("./Assets/Fonts/LabGrotesque/LabGrotesque-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("./Assets/Fonts/LabGrotesque/LabGrotesque-Regular.woff") format("woff"),
+    url("./Assets/Fonts/LabGrotesque/LabGrotesque-Regular.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lab Grotesque Medium";
+  src: url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.eot");
+  src: url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.woff") format("woff"),
+    url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Lab Grotesque Regular", sans-serif;
+}
+
+:root {
+  --gradient-red: linear-gradient(
+      255.35deg,
+      #dc3131 0.83%,
+      rgba(255, 79, 79, 0) 108.93%
+    ),
+    #ff5e56;
+  --color-details: #ea0029;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #808080;
+  --color-gray-inactive: #eef0f2;
+  --color-gray-hover: #dfe3e6;
+  --color-gray-disabled: #bec5cc;
+}
