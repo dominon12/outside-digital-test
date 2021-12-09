@@ -1,0 +1,66 @@
+.popup {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in var(--transition-on) ease-in 0s 1;
+
+  &.leave {
+    transition: var(--transition-on);
+    opacity: 0;
+  }
+
+  &__content {
+    background-color: var(--color-white);
+    border-radius: 30px;
+    padding: 2rem;
+    width: 552px;
+    max-height: 80vh;
+    overflow-y: scroll;
+    animation: appear var(--transition-on) ease-in 0s 1;
+
+    &.leave {
+      transition: var(--transition-on);
+      transform: scale(0);
+    }
+
+    &_inner {
+      position: relative;
+      width: 100%;
+      margin: auto;
+    }
+
+    &_close-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.6875rem;
+      color: var(--color-details);
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -4,10 +4,13 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./Components/App";
 import reportWebVitals from "./reportWebVitals";
+import TaxDeductionPopupProvider from "./Contexts/TaxDeductionPopupContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TaxDeductionPopupProvider>
+      <App />
+    </TaxDeductionPopupProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
