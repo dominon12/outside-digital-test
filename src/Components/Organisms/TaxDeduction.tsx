@@ -1,14 +1,16 @@
-import React, { useState } from "react";
-import CheckBox from "../Atoms/CheckBox";
+import React from "react";
+import Button from "../Atoms/Button";
 
 import "./TaxDeduction.scss";
 
 const TaxDeduction: React.FC = (): JSX.Element => {
-  const [checked, setChecked] = useState(false);
+  const openPopup = () => {};
 
   return (
     <section className="tax-deduction">
-      <CheckBox checked={checked} setChecked={setChecked} />
+      <Button style="big" onClick={openPopup} outline>
+        Налоговый вычет
+      </Button>
     </section>
   );
 };
