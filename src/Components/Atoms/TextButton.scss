@@ -1,0 +1,18 @@
+.text-button {
+  color: var(--color-details);
+  line-height: 1.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: color var(--transition-off);
+
+  &:hover,
+  &:focus {
+    transition: color var(--transition-on);
+    color: var(--color-details-hover);
+  }
+
+  &:active {
+    transition: color var(--transition-on);
+    color: var(--color-details);
+  }
+}
