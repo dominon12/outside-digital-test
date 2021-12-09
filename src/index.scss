@@ -31,12 +31,14 @@
 }
 
 :root {
+  // gradients
   --gradient-red: linear-gradient(
       255.35deg,
       #dc3131 0.83%,
       rgba(255, 79, 79, 0) 108.93%
     ),
     #ff5e56;
+  // colors
   --color-details: #ea0029;
   --color-white: #ffffff;
   --color-black: #000000;
@@ -44,4 +46,7 @@
   --color-gray-inactive: #eef0f2;
   --color-gray-hover: #dfe3e6;
   --color-gray-disabled: #bec5cc;
+  // animations
+  --transition-off: 0.1s;
+  --transition-on: 0.2s;
 }
