@@ -24,6 +24,7 @@
     max-height: 80vh;
     overflow-y: scroll;
     animation: appear var(--transition-on) ease-in 0s 1;
+    position: relative;
 
     &.leave {
       transition: var(--transition-on);
@@ -31,15 +32,14 @@
     }
 
     &_inner {
-      position: relative;
       width: 100%;
       margin: auto;
     }
 
     &_close-icon {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 1.4rem;
+      right: 1.4rem;
       font-size: 1.6875rem;
       color: var(--color-details);
       cursor: pointer;

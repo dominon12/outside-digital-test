@@ -4,6 +4,7 @@
   transition: var(--transition-off);
   font-size: 0.875rem;
   cursor: pointer;
+  display: inline-block;
 
   &__left,
   &__right {
@@ -11,8 +12,8 @@
     line-height: 1.5rem;
   }
 
-  &__left {
-    margin-right: 0.3rem;
+  &__right {
+    margin-left: 0.3rem;
   }
 
   &.active,
