@@ -1,16 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
 import "./index.scss";
 import App from "./Components/App";
 import reportWebVitals from "./reportWebVitals";
 import TaxDeductionPopupProvider from "./Contexts/TaxDeductionPopupContext";
+import { store } from "./Redux/Store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <TaxDeductionPopupProvider>
-      <App />
-    </TaxDeductionPopupProvider>
+    <Provider store={store}>
+      <TaxDeductionPopupProvider>
+        <App />
+      </TaxDeductionPopupProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

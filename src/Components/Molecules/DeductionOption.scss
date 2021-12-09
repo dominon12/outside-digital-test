@@ -1,0 +1,24 @@
+.deduction-option {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-gray-hover);
+  display: flex;
+  align-items: center;
+
+  &:first-child {
+    padding-top: 0.625rem;
+  }
+
+  &__label {
+    margin-left: 0.6875rem;
+
+    &_primary,
+    &_secondary {
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+    }
+    &_secondary {
+      margin-left: 0.3rem;
+      color: var(--color-gray);
+    }
+  }
+}
