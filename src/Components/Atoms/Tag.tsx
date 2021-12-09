@@ -3,22 +3,31 @@ import React from "react";
 import "./Tag.scss";
 
 interface Props {
-  isActive: boolean;
-  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+  id: string;
+  selected: string;
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
   left: string;
-  right: string;
+  right?: string;
 }
 
 const Tag: React.FC<Props> = (props): JSX.Element => {
-  const toggleIsActive = () => props.setIsActive((prev) => !prev);
+  const isSelected = props.id === props.selected;
+
+  const toggleIsActive = () => {
+    if (isSelected) {
+      props.setSelected("");
+    } else {
+      props.setSelected(props.id);
+    }
+  };
 
   return (
     <span
       onClick={toggleIsActive}
-      className={`tag ${props.isActive ? "active" : "inactive"}`}
+      className={`tag ${isSelected ? "active" : "inactive"}`}
     >
       <span className="tag__left">{props.left}</span>
-      <span className="tag__right">{props.right}</span>
+      {props.right && <span className="tag__right">{props.right}</span>}
     </span>
   );
 };

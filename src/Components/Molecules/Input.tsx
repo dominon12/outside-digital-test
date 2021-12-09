@@ -8,6 +8,7 @@ import { validateFormField } from "../../Services/FormService";
 
 interface Props {
   id: string;
+  labelText: string;
   placeholder: string;
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
@@ -43,7 +44,7 @@ const Input: React.FC<Props> = (props): JSX.Element => {
 
   return (
     <div className="input">
-      <FormFieldLabel htmlFor={props.id}>{props.placeholder}</FormFieldLabel>
+      <FormFieldLabel htmlFor={props.id}>{props.labelText}</FormFieldLabel>
 
       <input
         className={`input__input-field ${
