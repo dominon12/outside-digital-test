@@ -1,0 +1,15 @@
+.hint-text {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  line-height: 1.5rem;
+  font-weight: 300;
+  width: 90%;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 320px) {
+    font-size: 0.75rem;
+    width: 100%;
+    line-height: 1rem;
+  }
+}

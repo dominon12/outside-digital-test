@@ -1,0 +1,35 @@
+.option-selector {
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 453px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    margin-right: 2rem;
+
+    @media (max-width: 453px) {
+      margin-bottom: 1.5rem;
+      margin-right: 0;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__option {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-hover);
+  border-radius: 6px;
+  transition: var(--transition-off);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    border-color: var(--color-black);
+    transition: var(--transition-on);
+  }
+
+  &.checked {
+    transition: var(--transition-on);
+    border-color: red;
+    background: var(--gradient-red);
+  }
+
+  &.disabled {
+    border-color: var(--color-gray-disabled);
+    background: var(--color-gray-disabled);
+  }
+
+  &__done-icon {
+    color: var(--color-white);
+    font-size: 1.2rem;
+    animation: drop-down var(--transition-on) ease-in 0s 1;
+  }
+}
+
+@keyframes drop-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
