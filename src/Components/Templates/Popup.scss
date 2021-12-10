@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@
     padding: 2rem;
     width: 552px;
     margin: 0 auto;
-    overflow-y: scroll;
+    overflow-y: auto;
     animation: appear var(--transition-on) ease-in 0s 1;
     position: relative;
 
