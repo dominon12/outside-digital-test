@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import Title from "../Atoms/Title";
 import "./TaxDeductionCalculator.scss";
 import { calculateDeduction } from "../../Services/TaxDeductionService";
 import Button from "../Atoms/Button";
 import HintText from "../Atoms/HintText";
 import TextButton from "../Atoms/TextButton";
-import Title from "../Atoms/Title";
 import Input from "../Molecules/Input";
 import OptionSelector from "../Molecules/OptionSelector";
 import DeductionOptionsColumn from "./DeductionOptionsColumn";
@@ -98,8 +98,11 @@ const TaxDeductionCalculator: React.FC = (): JSX.Element => {
         setSelected={setSelectedCalculationOption}
         options={calculationOptions}
       />
-
-      <Button style="big" onClick={() => {}}>
+      <Button
+        className="tax-deduction-calculator__btn"
+        style="big"
+        onClick={() => {}}
+      >
         Добавить
       </Button>
     </section>

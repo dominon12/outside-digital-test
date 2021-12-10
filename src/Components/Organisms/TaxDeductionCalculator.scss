@@ -1,9 +1,24 @@
 .tax-deduction-calculator {
+  overflow-x: hidden;
+
+  @media (max-width: 453px) {
+    box-sizing: border-box;
+    min-height: calc(100vh - 2rem);
+    display: flex;
+    flex-direction: column;
+  }
+
   &__title {
+    @media (max-width: 453px) {
+      margin-top: 1rem;
+    }
   }
   &__hint {
   }
   &__options {
     margin-bottom: 2.5rem;
+  }
+  &__btn {
+    margin-top: auto;
   }
 }

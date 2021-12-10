@@ -6,7 +6,7 @@ export interface TaxDeductionPopupContextState {
 }
 
 const contextDefaultValues: TaxDeductionPopupContextState = {
-  visible: true,
+  visible: false,
   setVisible: () => {},
 };
 
@@ -42,15 +42,13 @@ const TaxDeductionPopupProvider: React.FC = ({ children }) => {
       const popupElement = document.querySelector("#tax-modal");
       if (popupElement) {
         popupElement.classList.add("leave");
-        popupElement.children[0].classList.add("leave");
+        popupElement.children[0].children[0].classList.add("leave");
       }
 
       timeout = setTimeout(() => setVisible(false), 200);
     } else {
       setVisible(true);
     }
-
-    document.body.style.overflowY = nextVisible ? "hidden" : "auto";
   };
 
   useEffect(() => {

@@ -13,18 +13,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: "Lab Grotesque Medium";
-  src: url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.eot");
-  src: url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.eot?#iefix")
-      format("embedded-opentype"),
-    url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.woff") format("woff"),
-    url("./Assets/Fonts/LabGrotesque/LabGrotesque-Medium.ttf")
-      format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   box-sizing: border-box;
   font-family: "Lab Grotesque Regular", sans-serif;

@@ -1,3 +1,13 @@
+@mixin btn-small {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.75rem 0;
+}
+
+@mixin btn-small-outline {
+  padding: 0.75rem 1.5rem;
+}
+
 .button {
   border: none;
   display: flex;
@@ -50,18 +60,24 @@
     line-height: 1.5rem;
     padding: 1rem 0;
 
+    @media (max-width: 320px) {
+      @include btn-small();
+    }
+
     &.outline {
       padding: 1rem 2rem;
+
+      @media (max-width: 320px) {
+        @include btn-small-outline();
+      }
     }
   }
 
   &.small {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    padding: 0.75rem 0;
+    @include btn-small();
 
     &.outline {
-      padding: 0.75rem 1.5rem;
+      @include btn-small-outline();
     }
   }
 }
