@@ -42,9 +42,14 @@ const Popup: React.FC<Props> = (props): JSX.Element | null => {
 
   return props.visible ? (
     <div id={props.id} className="popup">
-      <div ref={popupRef} className="popup__content">
-        <IoMdClose onClick={closePopup} className="popup__content_close-icon" />
-        <div className="popup__content_inner">{props.children}</div>
+      <div className="popup__wrapper">
+        <div ref={popupRef} className="popup__content">
+          <IoMdClose
+            onClick={closePopup}
+            className="popup__content_close-icon"
+          />
+          <div className="popup__content_inner">{props.children}</div>
+        </div>
       </div>
     </div>
   ) : null;

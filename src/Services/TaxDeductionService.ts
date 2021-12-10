@@ -16,7 +16,7 @@ const maxDeduction = 260000;
 export function calculateDeduction(monthlySalary: number): IDeductionOption[] {
   // calculate deduction per year
   const yearlyDeduction = monthlySalary * 12 * yearlyTaxDeductionRate;
-  // calculate amount of whole years
+  // calculate number of whole years
   const wholeYears = Math.floor(maxDeduction / yearlyDeduction);
   // calculate rest deduction
   const restDeduction = maxDeduction - yearlyDeduction * wholeYears;
@@ -24,12 +24,13 @@ export function calculateDeduction(monthlySalary: number): IDeductionOption[] {
   const resultDeduction: IDeductionOption[] = arrayFromNumber(
     wholeYears + 1
   ).map((_, index) => {
-    const deduction = index === wholeYears ? restDeduction : yearlyDeduction;
+    const lastItem = index === wholeYears;
+    const deduction = lastItem ? restDeduction : yearlyDeduction;
     return {
       id: index,
       deduction: Math.ceil(deduction),
-      selected: true,
       year: index + 1,
+      selected: !lastItem,
     };
   });
   return resultDeduction;
